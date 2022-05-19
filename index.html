@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>画板</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    hi
+    <canvas id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+
+      var ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "rgb(200,0,0)";
+
+      canvas.onmousemove = (e) => {
+        console.log(e.clientX);
+        console.log(e.clientY);
+        ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+      };
+    </script>
   </body>
 </html>
